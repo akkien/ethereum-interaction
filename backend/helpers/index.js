@@ -1,5 +1,6 @@
 const EthereumTX = require('ethereumjs-tx');
 const fs = require('fs');
+const CONFIG = require('./config');
 
 const signTx = (rawTx, privateKey) => {
   const privKeyToSign = Buffer.from(privateKey, 'hex');
@@ -18,6 +19,7 @@ const getCompiledContract = (contractPath) => {
 };
 
 module.exports = {
+  ...CONFIG,
   signTx,
   getCompiledContract
 };
